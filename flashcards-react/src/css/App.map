@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../scss/App.css",
+	"sources": [
+		"../scss/App.scss"
+	],
+	"sourcesContent": [
+		".App {\n  text-align: center;\n}\n\n.App-logo {\n  animation: App-logo-spin infinite 20s linear;\n  height: 40vmin;\n}\n\n.App-header {\n  background-color: #282c34;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: calc(10px + 2vmin);\n  color: white;\n}\n\n.App-link {\n  color: #61dafb;\n}\n\n@keyframes App-logo-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n"
+	],
+	"mappings": ";AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,MAAO;CACpB;;;AAED,AAAA,SAAS,CAAC;EACR,SAAS,EAAE,iCAAkC;EAC7C,MAAM,EAAE,MAAO;CAChB;;;AAED,AAAA,WAAW,CAAC;EACV,gBAAgB,EAAE,OAAQ;EAC1B,UAAU,EAAE,KAAM;EAClB,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;EACvB,WAAW,EAAE,MAAO;EACpB,eAAe,EAAE,MAAO;EACxB,SAAS,EAAE,kBAAI;EACf,KAAK,EAAE,KAAM;CACd;;;AAED,AAAA,SAAS,CAAC;EACR,KAAK,EAAE,OAAQ;CAChB;;AAED,UAAU,CAAV,aAAU;EACR,AAAA,IAAI;IACF,SAAS,EAAE,YAAM;;EAEnB,AAAA,EAAE;IACA,SAAS,EAAE,cAAM",
+	"names": []
+}
