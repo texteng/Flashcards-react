@@ -6,8 +6,31 @@
 
 /* line 6, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 #flashcard_display {
-  border-color: red;
-  border-style: solid;
+  height: 60vh !important;
+  text-align: center;
+}
+
+/* line 11, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+.card {
+  display: table !important;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  vertical-align: center;
+}
+
+/* line 20, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+.card-text {
+  display: table-cell !important;
+  vertical-align: middle;
+  height: 100%;
+}
+
+/* line 26, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+.navigation {
+  align-items: center;
+  text-align: center;
 }
 
 /*# sourceMappingURL=../css/Flashcards.map */

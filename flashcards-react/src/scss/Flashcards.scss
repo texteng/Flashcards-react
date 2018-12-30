@@ -4,9 +4,31 @@
 }
 
 #flashcard_display{ 
-    border-color: red;
-    border-style: solid;
+    height: 60vh !important;
+    text-align: center;
 }
+
+.card {
+    display: table!important;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    vertical-align: center;
+}
+
+.card-text{
+    display: table-cell!important;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.navigation{
+
+    align-items: center;
+    text-align: center;
+}
+
 
 
 // .App-logo {
