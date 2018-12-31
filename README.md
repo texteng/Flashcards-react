@@ -9,21 +9,28 @@ The CSS on this project will be created with the precomplier language SASS.
 Clone this repository onto your computer
 
 Install the create-react-app globally.  https://www.npmjs.com/package/create-react-app
-   
-   npm i -g create-react-app
+
+```
+npm i -g create-react-app
+```
 
 Once installed go into the repository in your computer and create the app
 
-   cd Flashcards-react
-   create-react-app flashcards-react
+```
+cd Flashcards-react
+create-react-app flashcards-react
+```
 
 Install bootstrap.
    
-   cd flashcards-react
-   npm i bootstrap
+```
+cd flashcards-react
+npm i bootstrap
+```
    
 To run test server
 
-   npm start
-
+```
+npm start
+```
 
