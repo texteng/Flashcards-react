@@ -9,54 +9,76 @@
 }
 
 .card {
-    display: table!important;
+    display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     height: 100%;
     width: 100%;
-    vertical-align: center;
+    border-radius: .25em;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.card-text{
-    display: table-cell!important;
-    vertical-align: middle;
-    height: 100%;
-}
 
 .navigation{
-
     align-items: center;
     text-align: center;
 }
 
+.flip{
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
 
-
-// .App-logo {
-// animation: App-logo-spin infinite 20s linear;
-// height: 40vmin;
-// }
-
-// .App-header {
-// background-color: #282c34;
-// min-height: 100vh;
-// display: flex;
-// flex-direction: column;
-// align-items: center;
-// justify-content: center;
-// font-size: calc(10px + 2vmin);
-// color: white;
+// .notransition {
+//     -webkit-transition: none !important;
+//     -moz-transition: none !important;
+//     -o-transition: none !important;
+//     transition: none !important;
 // }
 
-// .App-link {
-// color: #61dafb;
+// .hide{
+//     display: none !important;
+//     // -webkit-transform: rotateY( 180deg );
+//     // -moz-transform: rotateY( 180deg );
+//     // -o-transform: rotateY( 180deg );
+//     // transform: rotateY( 180deg );
 // }
 
-// @keyframes App-logo-spin {
-// from {
-//     transform: rotate(0deg);
+#definition{
+    background-color: beige !important;
+}
+
+#term{
+    position: relative;
+    top: -60vh;
+    background-color: ghostwhite !important;
+}
+
+
+// .navButton{
+//     display: block;
+//     color: black;
+//     height: 50px;
+//     width: 50px;
+//     &-left{
+//         content: "<"
+//     }
+//     &-right{
+//         content: "<"
+//     }
 // }
-// to {
-//     transform: rotate(360deg);
-// }
-// }
-  

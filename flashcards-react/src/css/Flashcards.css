@@ -12,25 +12,52 @@
 
 /* line 11, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 .card {
-  display: table !important;
+  display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   height: 100%;
   width: 100%;
-  vertical-align: center;
+  border-radius: .25em;
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  transition: transform 1s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-/* line 20, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
-.card-text {
-  display: table-cell !important;
-  vertical-align: middle;
-  height: 100%;
-}
-
-/* line 26, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 35, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 .navigation {
   align-items: center;
   text-align: center;
+}
+
+/* line 40, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+.flip {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* line 62, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#definition {
+  background-color: beige !important;
+}
+
+/* line 66, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#term {
+  position: relative;
+  top: -60vh;
+  background-color: ghostwhite !important;
 }
 
 /*# sourceMappingURL=../css/Flashcards.map */

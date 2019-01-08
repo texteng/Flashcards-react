@@ -6,14 +6,14 @@ import '../css/Flashcards.css'
 class Flashcard extends Component {
   render() {
     return (
-        <div className="card" onClick={() => this.flipCard()}>
-            <div id = "definition" className= "card-text">
-                <h2 className="display-5">{this.props.term}</h2>
-            </div>
-            <div id = "term" className= "card-text d-none">
-                <p>{this.props.definition}</p>
-            </div>
+      <React.Fragment>
+        <div id = "definition" className="card" onClick={() => this.flipCard()}>
+          <h2 className="display-5">{this.props.term}</h2>
         </div>
+        <div id = "term" className="card flip" onClick={() => this.flipCard()}>
+          <p>{this.props.definition}</p>
+        </div>
+      </React.Fragment>
     );
   }
   
@@ -21,13 +21,13 @@ class Flashcard extends Component {
     flipCard = () => {
       let cardDefinition = document.getElementById("definition");
       let cardTerm = document.getElementById("term");
-      if(!cardDefinition.classList.contains("d-none")){
-        cardDefinition.classList.add("d-none");
-        cardTerm.classList.remove("d-none");
+      if(!cardDefinition.classList.contains("flip")){
+        cardDefinition.classList.add("flip");
+        cardTerm.classList.remove("flip");
       }
-      else if(!cardTerm.classList.contains("d-none")){
-        cardDefinition.classList.remove("d-none");
-        cardTerm.classList.add("d-none");
+      else if(!cardTerm.classList.contains("flip")){
+        cardDefinition.classList.remove("flip");
+        cardTerm.classList.add("flip");
       }
 
     }
