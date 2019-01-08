@@ -66,17 +66,13 @@ class Flashcards extends Component {
         }
         
         movetoPreviousTerm = () => {
-            let currentState = this.state;
-            let previousTermIndex = (termIndex) => termIndex  === 0 ? currentState.vocabItem.length-1 : termIndex - 1;
-            let prevTerm = previousTermIndex(currentState.wordDisplayIndex);
-            this.switchCards(currentState, prevTerm, previousTermIndex);
+            let previousTermIndex = (termIndex) => termIndex  === 0 ? this.state.vocabItem.length - 1 : termIndex - 1;
+            this.switchCards(previousTermIndex);
         }
         
         movetoNextTerm = () => {
-            let currentState = this.state;
-            let nextTermIndex = (termIndex) => (termIndex + 1) >= currentState.vocabItem.length ? 0 : termIndex + 1;
-            let nextTerm = nextTermIndex(currentState.wordDisplayIndex);
-            this.switchCards(currentState, nextTerm, nextTermIndex);
+            let nextTermIndex = (termIndex) => (termIndex + 1) >= this.state.vocabItem.length ? 0 : termIndex + 1;
+            this.switchCards(nextTermIndex);
         }
         
         flipOnMove = () => {
@@ -90,9 +86,9 @@ class Flashcards extends Component {
             return false;
         }
         
-        
-        
-        switchCards = (currentState, newIndex, findNewIndex) => {
+        switchCards = (findNewIndex) => {
+            let currentState = this.state;
+            let newIndex = findNewIndex(currentState.wordDisplayIndex);
             if(currentState.learnedItems.length < currentState.vocabItem.length){
                 for(let i of currentState.learnedItems){
                     if(i === currentState.vocabItem[newIndex].id){
@@ -100,16 +96,11 @@ class Flashcards extends Component {
                     }
                 }
                 currentState.wordDisplayIndex = newIndex;
-                if (this.flipOnMove()) {
-                    setTimeout(() => {
-                        this.flipOnMove();
-                        this.setState(currentState);
-                    }, 250);
-                }
-                else {
-                    this.flipOnMove();
+                setTimeout(() => {
                     this.setState(currentState);
-                }
+                }, 
+                    this.flipOnMove() ? 200 : 0
+                );
             }
         }
         
