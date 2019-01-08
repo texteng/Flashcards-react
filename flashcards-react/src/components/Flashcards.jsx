@@ -7,16 +7,11 @@ import Flashcard from './Flashcard';
 class Flashcards extends Component {
     state = {
         vocabItem: [
-            // {id: 1, term: "Chicken", definition: "Cluck, Cluck"},
-            // {id: 2, term: "Duck", definition: "Quack, Quack"},
-            // {id: 3, term: "Cow", definition: "Moo!"},
-            // {id: 4, term: "Pig", definition: "Oink"},
-            // {id: 5, term: "Horse", definition: "Nay"},
-            {id: 1, term: "1", definition: "Cluck, Cluck"},
-            {id: 2, term: "2", definition: "Quack, Quack"},
-            {id: 3, term: "3", definition: "Moo!"},
-            {id: 4, term: "4", definition: "Oink"},
-            {id: 5, term: "5", definition: "Nay"},
+            {id: 1, term: "Chicken", definition: "Cluck, Cluck"},
+            {id: 2, term: "Duck", definition: "Quack, Quack"},
+            {id: 3, term: "Cow", definition: "Moo!"},
+            {id: 4, term: "Pig", definition: "Oink"},
+            {id: 5, term: "Horse", definition: "Nay"},
         ],
         learnedItems: [],
         wordDisplayIndex : 0
