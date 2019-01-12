@@ -6,44 +6,57 @@ import Flashcard from './Flashcard';
 
 class Flashcards extends Component {
     state = {
-        vocabItem: [
+        vocabularyTerms: [
             {id: 1, term: "Chicken", definition: "Cluck, Cluck"},
             {id: 2, term: "Duck", definition: "Quack, Quack"},
             {id: 3, term: "Cow", definition: "Moo!"},
             {id: 4, term: "Pig", definition: "Oink"},
             {id: 5, term: "Horse", definition: "Nay"},
         ],
-        learnedItems: [],
-        wordDisplayIndex : 0
+        itemsLearned: [],
+        wordDisplayIndex : 0,
+        startWithTerm: false
+    }
+
+    componentDidMount(){
+        this.side = {
+          definition : document.getElementById("definition"),
+          term : document.getElementById("term")
+        }
     }
     
     render() {
         return (
             <React.Fragment>
             <div id="flashcard_header" className="row">
-            <div className="col-12">
-            Flashcards App
-            </div>
+                <div className="col-12">
+                Flashcards App
+                </div>
             </div>
             <div id="flashcards" className="row">
-            <div id="flashcard_display" className = "col col-sm-8 offset-sm-2">
-            <Flashcard 
-            term= {this.state.vocabItem[this.state.wordDisplayIndex].term}
-            definition= {this.state.vocabItem[this.state.wordDisplayIndex].definition}
-            />
+                <div id="flashcard_display" className = "col col-sm-8 offset-sm-2">
+                <Flashcard 
+                    term= {this.state.vocabularyTerms[this.state.wordDisplayIndex].term}
+                    definition= {this.state.vocabularyTerms[this.state.wordDisplayIndex].definition}
+                    start = {this.state.startWithTerm}
+                    // onComplete = {this.resetLearned}
+                />
             </div>
             <div className="navigation col-12">
-            <button className="btn btn-success" onClick={this.movetoPreviousTerm}>Previous Term</button>
-            <button className="btn btn-success" onClick={this.movetoNextTerm}>Next Term</button>
+                <button className="btn btn-success" onClick={this.movetoPreviousTerm}>Previous Term</button>
+                <button className="btn btn-success" onClick={this.movetoNextTerm}>Next Term</button>
             </div>
             <div className="navigation col-12">
-            <button className="btn btn-success" onClick={this.markAsLearned}>Mark as Learned</button>
-            <button className="btn btn-success" onClick={this.resetLearned}>Reset Learned</button>
+                <button className="btn btn-success" onClick={this.markAsLearned}>Mark as Learned</button>
+                <button className="btn btn-success" onClick={this.resetLearned}>Reset Learned</button>
             </div>
             <div className="navigation col-12">
-            <h2>Words Learned: {this.state.learnedItems.length}</h2>
+                <button id = "changeStartDirectionButton" className="btn btn-success" onClick={() => this.chooseStartingSide()}>Start With {this.state.startWithTerm ? "Term" : "Definition"}</button>
             </div>
-            <div className="navButton-left"></div>
+            <div className="navigation col-12">
+                <h2>Words Learned: {this.state.itemsLearned.length}</h2>
+            </div>
+                <div className="navButton-left"></div>
             </div>
             </React.Fragment>
             );
@@ -51,36 +64,45 @@ class Flashcards extends Component {
         
         markAsLearned = () => {
             let currentState = this.state;
-            if(currentState.learnedItems.length < currentState.vocabItem.length){
-                currentState.learnedItems.push(this.state.vocabItem[this.state.wordDisplayIndex].id);
+            if(currentState.itemsLearned.length < currentState.vocabularyTerms.length){
+                currentState.itemsLearned.push(this.state.vocabularyTerms[this.state.wordDisplayIndex].id);
+                this.movetoNextTerm();
             }
-            this.movetoNextTerm();
-            this.setState(currentState);
+            else{
+                console.log("You finished all the words!")
+                // this.setState(currentState);
+            }
         }
         
         resetLearned = () => {
             let currentState = this.state;
-            currentState.learnedItems = [];
+            currentState.itemsLearned = [];
             currentState.wordDisplayIndex = 0;
             this.setState(currentState);
         }
         
         movetoPreviousTerm = () => {
-            let previousTermIndex = (termIndex) => termIndex  === 0 ? this.state.vocabItem.length - 1 : termIndex - 1;
+            let previousTermIndex = (termIndex) => termIndex  === 0 ? this.state.vocabularyTerms.length - 1 : termIndex - 1;
             this.switchCards(previousTermIndex);
         }
         
         movetoNextTerm = () => {
-            let nextTermIndex = (termIndex) => (termIndex + 1) >= this.state.vocabItem.length ? 0 : termIndex + 1;
+            let nextTermIndex = (termIndex) => (termIndex + 1) >= this.state.vocabularyTerms.length ? 0 : termIndex + 1;
             this.switchCards(nextTermIndex);
+        }
+
+        chooseStartingSide = () => {
+            let currentState = this.state;
+            currentState.startWithTerm = !currentState.startWithTerm;
+            this.setState(currentState);
         }
         
         flipOnMove = () => {
-            let cardDefinition = document.getElementById("definition");
-            let cardTerm = document.getElementById("term");
-            if(!cardTerm.classList.contains("flip")){
-                cardDefinition.classList.remove("flip");
-                cardTerm.classList.add("flip");
+            let defaultFront = this.state.startWithTerm? this.side.term : this.side.definition;
+            let defaultBack = this.state.startWithTerm? this.side.definition : this.side.term; 
+            if(defaultFront.classList.contains("flip")){
+                defaultBack.classList.add("flip");
+                defaultFront.classList.remove("flip");
                 return true;
             }
             return false;
@@ -89,9 +111,9 @@ class Flashcards extends Component {
         switchCards = (findNewIndex) => {
             let currentState = this.state;
             let newIndex = findNewIndex(currentState.wordDisplayIndex);
-            if(currentState.learnedItems.length < currentState.vocabItem.length){
-                for(var i = 0; i < currentState.learnedItems.length; i++){
-                    if(currentState.learnedItems[i] === currentState.vocabItem[newIndex].id){
+            if(currentState.itemsLearned.length < currentState.vocabularyTerms.length){
+                for(var i = 0; i < currentState.itemsLearned.length; i++){
+                    if(currentState.itemsLearned[i] === currentState.vocabularyTerms[newIndex].id){
                         newIndex = findNewIndex(newIndex);
                         i = -1;
                     }
@@ -100,7 +122,7 @@ class Flashcards extends Component {
                 setTimeout(() => {
                     this.setState(currentState);
                 }, 
-                    this.flipOnMove() ? 200 : 0
+                    this.flipOnMove() ? 400 : 0
                 );
             }
             else{
