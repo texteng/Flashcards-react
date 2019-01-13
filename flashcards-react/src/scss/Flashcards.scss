@@ -1,6 +1,5 @@
 #flashcard_header{ 
-    border-color: red;
-    border-style: solid;
+    text-align: center;
 }
 
 #flashcard_display{ 
@@ -33,15 +32,50 @@
 
 
 .navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav{
+    @mixin nav-button-position(){
+        position: relative;
+        width: 6em;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        fill: blue;
+        // width: 4em;
+        // height: 4em; 
+        &:hover{
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+        }
+        &:active{
+            fill:lightyellow;
+            opacity: 0.5;
+            filter: alpha(opacity=80);
+        }
+    }
+    &-left{
+        @include nav-button-position;
+        left: 20vh;
+    }
+    &-right{
+        @include nav-button-position;
+        left: -20vh;
+    }
+}
+
+.bottomButtons{
     align-items: center;
     text-align: center;
 }
 
 .flip{
-    -webkit-transform: rotateY( 180deg );
-    -moz-transform: rotateY( 180deg );
-    -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+    -webkit-transform: rotateX( 180deg );
+    -moz-transform: rotateX( 180deg );
+    -o-transform: rotateX( 180deg );
+    transform: rotateX( 180deg );
 }
 
 // .notransition {

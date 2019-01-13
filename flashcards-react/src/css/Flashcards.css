@@ -1,16 +1,15 @@
 /* line 1, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 #flashcard_header {
-  border-color: red;
-  border-style: solid;
+  text-align: center;
 }
 
-/* line 6, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 5, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 #flashcard_display {
   height: 60vh !important;
   text-align: center;
 }
 
-/* line 11, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 10, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 .card {
   display: flex;
   align-items: center;
@@ -34,26 +33,79 @@
   backface-visibility: hidden;
 }
 
-/* line 35, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 34, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 59, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-left {
+  position: relative;
+  width: 6em;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  fill: blue;
+  left: 20vh;
+}
+
+/* line 49, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-left:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 53, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-left:active {
+  fill: lightyellow;
+  opacity: 0.5;
+  filter: alpha(opacity=80);
+}
+
+/* line 63, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-right {
+  position: relative;
+  width: 6em;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  fill: blue;
+  left: -20vh;
+}
+
+/* line 49, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-right:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 53, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+#nav-right:active {
+  fill: lightyellow;
+  opacity: 0.5;
+  filter: alpha(opacity=80);
+}
+
+/* line 69, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+.bottomButtons {
   align-items: center;
   text-align: center;
 }
 
-/* line 40, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 74, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 .flip {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
-/* line 62, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 96, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 #definition {
   background-color: beige !important;
 }
 
-/* line 66, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
+/* line 100, C:/Users/texte/Documents/Portfolio/Flashcards-react/flashcards-react/src/scss/Flashcards.scss */
 #term {
   position: relative;
   top: -60vh;
