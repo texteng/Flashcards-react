@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import '../css/Flashcards.css';
-import '../css/Flashcards.css';
+import '../scss/Flashcards.scss';
 import Flashcard from './Flashcard';
 // import $ from 'jquery'
 
@@ -29,26 +27,26 @@ class Flashcards extends Component {
           complete: document.getElementById("complete")
         }
         document.onkeydown = (event) =>{
-            switch(event.keyCode) {
-                case 37:
+            switch(event.key) {
+                case "ArrowLeft":
                     this.movetoPreviousTerm();
-                  break;
-                case 39:
+                break;
+                case "ArrowRight":
                     this.movetoNextTerm();
                     // rightButton.click();
                     // $("nav-right").trigger('click');
-                  break;
-                case 40:
-                case 38:
+                break;
+                case "ArrowUp":
+                case "ArrowDown":
                     this.flipCard();
                 break;
-                case 13:
+                case "Enter":
                     (this.state.itemsLearned.length < this.state.vocabularyTerms.length)? this.markAsLearned(): this.restart();
                 break;
                 default:
-                console.log(event)
-    }
-    
+                    console.log(event)
+                break;
+            }
         } 
     }
     //Right keycode 39
@@ -114,8 +112,7 @@ class Flashcards extends Component {
             else if(definition.classList.contains("flip")){
             definition.classList.remove("flip");
             term.classList.add("flip");
-        }
-        
+            }
         }
         
         movetoPreviousTerm = () => {

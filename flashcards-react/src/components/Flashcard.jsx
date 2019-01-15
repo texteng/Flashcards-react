@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../css/Flashcards.css'
+// import '../css/Flashcards.css'
+import '../scss/Flashcards.scss';
 
 class Flashcard extends Component {
   componentDidMount(){
